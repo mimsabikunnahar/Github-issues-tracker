@@ -62,7 +62,7 @@ const displayCards = (cards) => {
     console.log(card);
     const issueCard = document.createElement("div");
     issueCard.innerHTML = `
-    <div class="bg-white rounded-xl shadow-sm py-10 px-10 space-y-4 h-100">
+    <div class="bg-white rounded-xl shadow-sm py-10 px-10 space-y-4 h-100" onclick='createModal(${JSON.stringify(card)})'>
     <div class="flex justify-between gap-3">
     <span>${createSymbols(card.status)}</span>
     <div>${statusHlm(card.priority)}</div>
@@ -83,6 +83,23 @@ const displayCards = (cards) => {
   });
     
 };
+
+// show modal
+const createModal = (card) => {
+  console.log(card);
+
+  const detailsBox = document.getElementById("details-container");
+  detailsBox.innerHTML = `
+    <h3 class="text-lg font-bold">${card.title}</h3>
+    <div>${createSymbols(card.status)}</div>
+    <p class="py-4" style="color:#64748B;">${card.description}</p>
+    <p style="color:#64748B;">Author: ${card.author}</p>
+    <p style="color:#64748B;">Updated: ${card.updatedAt}</p>
+  `;
+
+  document.getElementById("my_modal_8").showModal();
+};
+
 
 // {
 //   "id": 1,

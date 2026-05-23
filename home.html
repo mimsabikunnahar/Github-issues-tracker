@@ -15,6 +15,7 @@
   <title>HomePage</title>
 </head>
 <body>
+
   <header class="sticky-head z-10">
     <div class="max-lg:collapse bg-base-200 lg:mb-20 shadow-sm w-full rounded-md">
      <input id="navbar-1-toggle" class="peer hidden" type="checkbox" />
@@ -24,13 +25,10 @@
       <label for="navbar-1-toggle" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
-      
       <div class="w-[60px] mr-5">
          <img src="assets/github-logo.png" alt="" class="w-full h-auto">
       </div>
-      
-
-        <h1 class="font-semibold text-lg">GitHub Issues Tracker</h1>
+       <h1 class="font-semibold text-lg">GitHub Issues Tracker</h1>
     </div>
    
     <div class="navbar-end gap-2">
@@ -39,7 +37,7 @@
     </div>
   </div>
   </header>
-
+<!-- tabs -->
   <section class="bg-base-200 w-11/12 mx-auto py-5 rounded pl-5 mb-2">
      <div>
                 <!-- ALL -->
@@ -53,7 +51,7 @@
                     class=" bg-white px-8 py-2 rounded-lg border cursor-pointer transition-all duration-200 hover:bg-blue-700 hover:text-white">Closed</button>
             </div>
     </section>
-
+<!-- 50 issues -->
     <section class="bg-base-200 w-11/12 mx-auto py-2 rounded pl-5 mb-2">
    <div class="navbar pr-5">
 <div class="flex-1 flex items-center">
@@ -61,24 +59,73 @@
     <img src="assets/Aperture.png" alt="">
   </div>
   <div>
-      <a class="btn btn-ghost text-xl">50 Issues</a>
+      <a class="text-xl">50 Issues</a>
     <p style="color:#64748B;">Track and manage your project issues</p>
   </div>
    </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1 gap-5 flex justify-between">
-      <li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[#00A96E] text-sm"></i>Open</li>
-      <li class=" flex items-center gap-2"><i class="fa-solid fa-circle text-[#A855F7] text-sm"></i>Closed</li>
+      <li class="flex items-center gap-2 flex-row"><i class="fa-solid fa-circle text-[#00A96E] text-sm"></i>Open</li>
+      <li class=" flex items-center gap-2 flex-row"><i class="fa-solid fa-circle text-[#A855F7] text-sm"></i>Closed</li>
   </ul>
   </div>
 </div>
     </section>
-
-  <section id="card-container" class="grid grid-cols-3 gap-4 bg-base-200 w-11/12 mx-auto py-2 px-5 items-start rounded">
+<!-- all section -->
+  <section id="card-container" class="mb-5 grid grid-cols-3 gap-4 bg-base-200 w-11/12 mx-auto py-2 px-5 items-start rounded">
      
   </section>
+<!-- open section -->
+  <section id="open-container">
+  </section>
+  <!-- closed section -->
+  <section id="Closed-container">
 
- 
+  </section>
+
+    <div class="issue_modal" role="dialog" id="my_modal_8">
+  <div class="modal-box">
+    <div id="details-container">
+      
+    </div>
+    <div class="modal-action">
+      <a href="#" class="btn btn-primary">Close</a>
+    </div>
+  </div>
+</div>
+
+  <!-- modal -->
+   <!-- <a href="#my_modal_8" class="btn">open modal</a> -->
+
+
+   <!-- empty slate -->
+        <div id="empty-slate" class="last">
+            <i class="fa fa-file-alt fa-4x" style="color: skyblue;"></i>
+            <h2 class="font-bold text-[#323B49]">No issues available</h2>
+            <p>Check back soon for new issues</p>
+        </div>
+
+ <!-- <footer>
+  <div class="max-lg:collapse shadow-sm w-full rounded-md">
+     <input id="navbar-1-toggle" class="peer hidden" type="checkbox" />
+  <label for="navbar-1-toggle" class="fixed inset-0 hidden max-lg:peer-checked:block"></label>
+  <div class="collapse-title navbar">
+    <div class="navbar-start">
+      <label for="navbar-1-toggle" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <div class="w-[60px] mr-5">
+         <img src="assets/github-logo.png" alt="" class="w-full h-auto">
+      </div>
+       <h1 class="font-semibold text-lg">GitHub Issues Tracker</h1>
+    </div>
+   
+    <div class="navbar-end gap-2">
+      <input type="text" placeholder="Search" class="input input-bordered w-64 lg:w-auto" />
+     <button class="btn btn-primary">+ New Issues</button>
+    </div>
+  </div>
+ </footer> -->
 
   
     
