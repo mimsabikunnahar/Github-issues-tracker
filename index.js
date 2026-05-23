@@ -6,6 +6,63 @@ const loadIssues = () => {
       displayCards(data.data);
     });
 };
+// all tab select
+let currentTab = 'all'
+const tabActive = ['bg-blue-700', 'text-white']
+const tabInactive = ['bg-white', 'text-[#64748B]', 'border-[#64748B]']
+
+// container call
+const all = document.getElementById("card-container");
+const open = document.getElementById("open-container");
+const closed = document.getElementById("closed-container");
+
+// tab switch
+ 
+const switchTab = (btn) => {
+  const tabs = ['all', 'open', 'closed'];
+  currentTab = btn;
+  for (const tab of tabs) {
+    const tabName = document.getElementById(`tab-${tab}`)
+    if (tab === btn) {
+      tabName.classList.remove(...tabInactive)
+      tabName.classList.add(...tabActive)
+    }
+    else {
+      tabName.classList.remove(...tabActive)
+      tabName.classList.add(...tabInactive)
+    }
+  }
+
+  // page hidden remove > page show
+  const pages = [allPage, interviewPage, rejectedPage];
+  for (const section of pages) {
+    section.classList.add("hidden");
+  }
+  // empty slate hidden
+  emptySlate.classList.add("hidden");
+
+  if (btn === "all") {
+    allPage.classList.remove("hidden");
+    if (allPage.children.length < 1) {
+      emptySlate.classList.remove("hidden");
+    }
+
+  }
+  else if (btn === "interview") {
+    interviewPage.classList.remove("hidden");
+    if (interviewPage.children.length < 1) {
+      emptySlate.classList.remove("hidden");
+    }
+  } else {
+    rejectedPage.classList.remove("hidden");
+    if (rejectedPage.children.length < 1) {
+      emptySlate.classList.remove("hidden");
+    }
+  }
+
+};
+switchTab("all");
+
 
 
 // for card down symbol
@@ -91,33 +148,22 @@ const createModal = (card) => {
   const detailsBox = document.getElementById("details-container");
   detailsBox.innerHTML = `
     <h3 class="text-lg font-bold">${card.title}</h3>
-    <div>${createSymbols(card.status)}</div>
-    <p class="py-4" style="color:#64748B;">${card.description}</p>
+    <div class="flex flex-row gap-1">
+    <div class="btn btn-soft rounded-full bg-[#00A96E] text-[#BBF7D0]">${card.status}</div>
+    
+    <p style="color:#64748B;" class="text-xs"><i class="fa-solid fa-circle"></i>opened by ${card.author}</p>
+    <p  style="color:#64748B;" class="text-xs"><i class="fa-solid fa-circle"></i>${card.createdAt}</p>
+    </div>
+    <div class="flex flex-auto gap-2 pr-10 text-wrap mt-3 mb-3">
+      ${createElements(card.labels)}
+     </div>
+      <p class="py-4" style="color:#64748B;">${card.description}</p>
     <p style="color:#64748B;">Author: ${card.author}</p>
     <p style="color:#64748B;">Updated: ${card.updatedAt}</p>
   `;
 
   document.getElementById("my_modal_8").showModal();
 };
-
-
-// {
-//   "id": 1,
-//     "title": "Fix navigation menu on mobile devices",
-//       "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-//         "status": "open",
-//           "labels": [
-//             "bug",
-//             "help wanted"
-//           ],
-//             "priority": "high",
-//               "author": "john_doe",
-//                 "assignee": "jane_smith",
-//                   "createdAt": "2024-01-15T10:30:00Z",
-//                     "updatedAt": "2024-01-15T10:30:00Z"
-// },
-
-
 
 
 loadIssues();
