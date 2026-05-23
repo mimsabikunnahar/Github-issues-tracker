@@ -15,7 +15,7 @@
   <title>HomePage</title>
 </head>
 <body>
-  <header>
+  <header class="sticky-head z-10">
     <div class="max-lg:collapse bg-base-200 lg:mb-20 shadow-sm w-full rounded-md">
      <input id="navbar-1-toggle" class="peer hidden" type="checkbox" />
   <label for="navbar-1-toggle" class="fixed inset-0 hidden max-lg:peer-checked:block"></label>
@@ -66,9 +66,9 @@
   </div>
    </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1 gap-5">
-      <li class="">Open</li>
-      <li>Closed</li>
+    <ul class="menu menu-horizontal px-1 gap-5 flex justify-between">
+      <li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[#00A96E] text-sm"></i>Open</li>
+      <li class=" flex items-center gap-2"><i class="fa-solid fa-circle text-[#A855F7] text-sm"></i>Closed</li>
   </ul>
   </div>
 </div>

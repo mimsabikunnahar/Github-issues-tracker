@@ -12,13 +12,13 @@ const loadIssues = () => {
 const createElements = (arr) => {
   const htmlElements = arr.map((el, index) => {
     if (el === "bug") {
-      return `<span class="btn btn-soft rounded-full text-[#EF4444] bg-[#FECACA]"><i class="fa-solid fa-bug"></i> ${el}</span>`;
+      return `<span class="btn btn-soft rounded-full text-[#EF4444] bg-[#FECACA] mb-3"><i class="fa-solid fa-bug"></i> ${el}</span>`;
     } else if (el === "help wanted") {
-      return `<span class="btn btn-soft rounded-full bg-[#FDE68A] text-[#D97706]"><i class="fa-solid fa-life-ring"></i> ${el}</span>`;
+      return `<span class="btn btn-soft rounded-full bg-[#FDE68A] text-[#D97706] mb-3"><i class="fa-solid fa-life-ring"></i> ${el}</span>`;
     } else if (el === "enhancement") {
-      return `<span class="btn btn-soft rounded-full text-[#00A96E] bg-[#BBF7D0]"><i class="fa-solid fa-wand-magic-sparkles"></i> ${el}</span>`;
+      return `<span class="btn btn-soft rounded-full text-[#00A96E] bg-[#BBF7D0] mb-3"><i class="fa-solid fa-wand-magic-sparkles"></i> ${el}</span>`;
     } else {
-      return `<span class="btn btn-soft rounded-full bg-[#FDE68A] text-[#D97706]">${el}</span>`;
+      return `<span class="btn btn-soft rounded-full text-[#A855F7] bg-[#F0E2FF] mb-3">${el}</span>`;
     }
   });
 
@@ -34,7 +34,7 @@ const createSymbols = (sym) => {
     
   }
   else {
-    symbol = ` <span><img src="./assets/Closed-Status.png" alt="Closed"></span>`
+    symbol = ` <span><img src="./assets/closed.png" alt="Closed"></span>`
   }
   return symbol;
 };
@@ -69,7 +69,7 @@ const displayCards = (cards) => {
   </div>
        <h2 class="font-bold text-xl">${card.title}</h2>
      <p style="color:#64748B;">${card.description}</p>
-     <div class="flex justify-between gap-2 pr-10 text-wrap">
+     <div class="flex justify-between gap-2 pr-10 text-wrap border-b-2 border-gray-200 mb-3">
       ${createElements(card.labels)}
      </div>
       <footer>
